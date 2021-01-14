@@ -70,7 +70,7 @@ For more examples, please see the [Create and fetch Resources via the AMPLIFY Ce
 
 Create one or more resources from a YAML | JSON file or Stdin.
 
-### Usage
+### Create Usage
 
 `amplify central create <command> [options]`
 
@@ -105,7 +105,6 @@ Create an environment with the specified name
 
 `name`          Name of new environment
 
-
 ### Create Examples
 
 ```bash
@@ -127,7 +126,7 @@ Update resources from a file.
 
 The resource name must be specified in the file. This resource will be created if it doesn't exist yet.
 
-### Usage
+### Apply Usage
 
 `amplify central apply [options]`
 
@@ -138,7 +137,6 @@ The resource name must be specified in the file. This resource will be created i
   `-f,--file=<path>`      Filename to use to create or update the resources. One of: yaml | json
 
   `-o,--output=<value>`  Additional output formats. One of: YAML | JSON
-
 
 ### Apply Examples
 
@@ -160,7 +158,7 @@ name by providing `-s, --scope <name>` flag.
 
 To see the list of all available resources on the server run `amplify central delete`.
 
-### Usage
+### Delete Usage
 
 `amplify central delete [options] [<args...>]`
 
@@ -195,7 +193,7 @@ amplify central delete -f ./some/folder/resources.yaml
 
 Edit and update resources by using the default editor
 
-### Usage
+### Edit Usage
 
 `amplify central edit <command> [options]`
 
@@ -219,12 +217,9 @@ Usage:
 
 `amplify central edit environment [options] <name>`
 
-
-
 Environment Arguments:
 
   `name`          Name of the environment
-
 
 ### Edit Examples
 
@@ -239,10 +234,9 @@ amplify central edit environment newenv
 
 Install additional platform resources
 
-### Usage
+### Install Usage
 
 `amplify central install <command> [options] [<args...>]`
-
 
 ### Install Commands
 
@@ -253,18 +247,18 @@ Install additional platform resources
   `args...`               Command arguments, run `amplify central install` to see the examples
 
 ### Install Options
+
 `--client-id=<value>`   Override your DevOps account's client ID
 
 `--region=<value>`      Override your region config
 
-
 #### **install: agents configuration**
+
 Install API Gateway v7 / Amazon API Gateway / Kubernetes agents
 
 Usage:
 
 `amplify central install agents [options]`
-
 
 Install Options:
 
