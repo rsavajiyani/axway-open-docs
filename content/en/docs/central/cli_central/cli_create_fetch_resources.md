@@ -17,18 +17,20 @@ description: Learn about creating and fetching different AMPLIFY Central resourc
 * Learn about the information the AMPLIFY Central CLI provides when you fetch the resources you've created
 
 ## Creating a resource
+
 The AMPLIFY Central CLI supports creating several resources from either a YAML | JSON file or Stdin.
 
 `amplify central create -f <path_to_file>` Create resources defined in a YAML or JSON file.
 
 ## Fetching a resource
+
 The AMPLIFY Central CLI lists a table of the most important information about the specified resources. You can query for a singular resource or multiple resources:
 
-`amplify central get <Resource>`			Get a list of the resources
+`amplify central get <Resource>` Get a list of the resources
 
-`amplify central get <Resource1>,<Resource2>,...,<ResourceN>`	Get a list of multiple resources
+`amplify central get <Resource1>,<Resource2>,...,<ResourceN>` Get a list of multiple resources
 
-`amplify central get <Resource> <Name> -s/--scope <Scope Name>`	Get a specific resource by name
+`amplify central get <Resource> <Name> -s/--scope <Scope Name>` Get a specific resource by name
 
 ## Sample Resource Files and Fetch Examples
 
@@ -81,7 +83,6 @@ NAME        AGE           TITLE                RESOURCE KIND  SCOPE KIND   SCOPE
 secretname  4 months ago  secrettitle          Secret         Environment  apigtw-v77
 ```
 
-
 ### Creating and Fetching Webhooks
 
 Try creating a Webhook using the [apiwebhook.json](https://axway-open-docs.netlify.app/samples/central/apiwebhook.json).
@@ -89,6 +90,7 @@ Try creating a Webhook using the [apiwebhook.json](https://axway-open-docs.netli
 You can then fetch information about your Webhooks by running:
 
 `amplify central get webhooks` or `amplify central get wh` :
+
 ```
 Resource(s) successfully retrieved
 
@@ -101,6 +103,7 @@ subscriptionwebhook        4 months ago  subscriptionwebhook               Webho
 ```
 
 ## More Sample Resources
+
 You can practice the above pattern of creating and fetching resources using our sample files:
 
 * API Services: [apiservice.json](https://axway-open-docs.netlify.app/samples/central/apiservice.json)
@@ -112,4 +115,3 @@ You can practice the above pattern of creating and fetching resources using our 
 * Environments: [create_environments.json](https://axway-open-docs.netlify.app/samples/central/create_environments.json)
 
 Run `amplify central get` to see the entire list of resources supported by the AMPLIFY Central CLI.
-
