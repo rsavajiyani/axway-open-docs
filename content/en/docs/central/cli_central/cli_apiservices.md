@@ -49,13 +49,13 @@ Get a list of all API services in all environments:
 amplify central get apiservices
 ```
 
-You can also use the short name 'apis':
+Alternatively, you can use the short name, `apis`:
 
 ```
 amplify central get apis
 ```
 
-This command will output a list of all API services in all environments, with information about the API service name, age, title, and environment scope information:
+This command outputs a list of all API services in all environments, with information about the API service name, age, title, and environment scope information:
 
 ```
 NAME                                         AGE           TITLE                                         RESOURCE KIND  SCOPE KIND   SCOPE NAME
@@ -67,16 +67,16 @@ swagger-petstore-raml                        23 days ago   Swagger Petstore RAML
 ably-rest-api                                5 days ago    ably-rest-api                                 APIService     Environment  apig33
 ```
 
-You can also get help with a list of supported resource types:
+To get help with a list of supported resource types, run:
 
 ```
 amplify central get
 ```
 
-Which will output a table of supported resources, along with their resource kinds and short names:
+This command outputs a table of supported resources, along with their resource kinds and short names:
 
 ```
-The server supports following resources:
+The server supports the following resources:
 
 RESOURCE                  SHORT NAMES  RESOURCE KIND                   SCOPED  SCOPE KIND
 apiserviceinstances       apisi        APIServiceInstance              true    Environment
@@ -114,7 +114,7 @@ Get the details for a specific API service in an environment by providing the en
 amplify central get apisvc <name> --scope env1 -o yaml  # Get API service <name> details for `env1` in YAML format
 ```
 
-Which will output the details for that specific service in YAML format:
+This command outputs the details for that specific service in YAML format:
 
 ```
 ---
@@ -151,7 +151,7 @@ spec:
 ---
 ```
 
-To output the information in JSON format, change the -o flag from yaml to json:
+To output the information in JSON format, change the `-o` flag from YAML to JSON:
 
 ```
 amplify central get apisvc <name> -s env1 -o json       # Get API service <name> details for `env1` in JSON format

@@ -1,86 +1,103 @@
 ---
 title: AMPLIFY Central CLI Command Index
-linkTitle: AMPLIFY Central CLI Command Index
+linkTitle: CLI commands Reference
 weight: 130
 date: 2021-01-13T00:00:00.000Z
-description: Learn about the different AMPLIFY Central CLI commands you can use
+description: Learn about the different AMPLIFY Central CLI commands you can use.
 ---
 
-## **get**
+## get
 
-List one or more resources.
+This command lists one or more resources. It also prints a table of the most important information about an specified resources. If the desired resource type is scoped, you will need to specify the scope name by providing the `-s, --scope <name>` flag.
 
-Prints a table of the most important information about the specified resources.
-
-If the desired resource type is scoped you will need to specify the scope name by providing `-s, --scope <name>` flag.
-
-You can query for more than one resource if using comma-separated resources in the command (see the examples).
-
-Querying for multiple resources will display multiple result tables, one result table for each resource you fetch.
-
-To see the list of all available resources from AMPLIFY Central, run `amplify central get`
-
-### Usage
-
-`amplify central get [options] [<args...>]`
-
-`amplify central get <Resource>` Get a list of the resources
-
-`amplify central get <Resource1>,<Resource2>,...,<ResourceN>` Get a list of multiple resources
-
-`amplify central get <Resource> <Name> -s/--scope <Scope Name>` Get a specific resource by name
-
-### Get Options
-
-`--client-id=<value>` Override your DevOps account's client ID
-
-`-o,--output=<value>` Additional output formats. One of: yaml | json
-
-`-s,--scope=<name>` Scope name for scoped resources.
-
-### Get Arguments
-
-`args...` Command arguments, run `amplify central get` to see the examples
-
-### Get Examples
+You can search for more than one resource if you use comma-separated resources in the command. The search for multiple resources will display multiple result tables, one result table for each resource you fetch. To see the list of all available resources from AMPLIFY Central, run:
 
 ```
-# get all environments
+amplify central get
+```
+
+The following table describe the usage, options, and arguments that you can use with the `get` command:
+
+|Usage                                                          |                             |
+|---                                                            |---                                   |
+|`amplify central get [options] [<args...>]`                    |                                    |
+|`amplify central get <Resource>`                               |# Get a list of the resources          |
+|`amplify central get <Resource1>,<Resource2>,...,<ResourceN>`  |# Get a list of multiple resources  |
+|`amplify central get <Resource> <Name> -s/--scope <Scope Name>`|# Get a specific resource by name |
+|**Options**                                                    |                   |
+|`--client-id=<value>`                                          |# Override your DevOps account's client ID |
+|`-o,--output=<value>`                                          |# Additional output formats, yaml or json  |
+|`-s,--scope=<name>`                                            |# Scope name for scoped resources          |
+|**Arguments**                                                    |                   |
+|args...                                                        |# Command arguments, run `amplify central get` to see the examples |
+
+The following are examples of how to use the `get` command:
+
+To get all environments:
+
+```
 amplify central get envs
-# get all environments in yaml format
+```
+
+To get all environments in yaml format
+
+```
 amplify central get environments -o yaml
-# get environment by Resource/Common name in json format
+```
+
+To get environment by Resource/Common name in json format
+
+```
 amplify central get env myenv -o json
-# get all webhooks
+```
+
+To get all webhooks
+
+```
 amplify central get webhooks
-# get all webhooks by Short Name
+```
+
+To get all webhooks by Short Name
+
+```
 amplify central get webh
-# get all webhooks and apiservices by Short Name
+```
+
+To get all webhooks and apiservices by Short Name
+
+```
 amplify central get webh,apis
-# get all environments and api services
+```
+
+To get all environments and API services
+
+```
 amplify central get envs,apisvc
-# get environment and apiservice which matches a Resource/Common Name in a specified scope(scope is required ater -s flag) in json format
+```
+
+To get an environment and an apiservice which matches a Resource/Common Name in a specified scope (scope is required after -s flag) in json format
+
+```
 amplify central get env,apisvc commonname -s env1 -o json
 ```
 
-For more examples, please see the [Create and fetch Resources via the AMPLIFY Central CLI](https://docs.axway.com/bundle/axway-open-docs/page/docs/central/cli_central/cli_create_fetch_resources/index.html) page.
-- - -
+For more examples, see [Create and fetch resources via the AMPLIFY Central CLI](/docs/central/cli_central/cli_create_fetch_resources/).
 
-## **create**
+## create
 
 Create one or more resources from a YAML | JSON file or Stdin.
 
-### Create Usage
+**Create Usage**:
 
 `amplify central create <command> [options]`
 
-### Create Commands
+**Create Commands**:
 
 `environment` Create an environment with the specified name
 
 `service-account` Create a service account
 
-### Create Options
+**Create Options**:
 
 `--client-id=<value>` Override your DevOps account's client ID
 
@@ -90,22 +107,22 @@ Create one or more resources from a YAML | JSON file or Stdin.
 
 `--region=<value>` Override your region config
 
-#### **create: multiple resources from a file**
+**create: multiple resources from a file**:
 
 Usage: `amplify central create -f <path_to_file>`
 
-#### **create: specific resource by name**
+**create: specific resource by name**:
 
 **_Note: Only environments are currently available for this command._**
 
 Usage: `amplify central create environment [options] <name>`
 Create an environment with the specified name
 
-#### Environment Arguments
+**Environment Arguments**:
 
 `name`          Name of new environment
 
-### Create Examples
+**Create Examples**:
 
 ```bash
 # create new environment with "newenv" name
@@ -118,9 +135,7 @@ amplify central create -f ./some/folder/resources.yaml
 amplify central create service-account
 ```
 
-- - -
-
-## **apply**
+## apply
 
 Update resources from a file.
 
