@@ -18,7 +18,7 @@ You can query for more than one resource if using comma-separated resources in t
 
 Querying for multiple resources will display multiple result tables, one result table for each resource you fetch.
 
-To see the list of all available resources on the server run `amplify central get`
+To see the list of all available resources from AMPLIFY Central, run `amplify central get`
 
 ### Usage
 
