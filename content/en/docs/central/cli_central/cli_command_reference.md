@@ -171,7 +171,7 @@ Delete resources by type name or file name.
 When deleting the single resource by its name if the desired resource type is scoped you will need to specify the scope
 name by providing `-s, --scope <name>` flag.
 
-To see the list of all available resources on the server run `amplify central delete`.
+To see the list of all available resources on the API Server run `amplify central delete`.
 
 ### Delete Usage
 
