@@ -6,7 +6,7 @@ date: 2021-01-13T00:00:00.000Z
 description: Learn about the different AMPLIFY Central CLI commands you can use.
 ---
 
-This section contains the most basic commands for creating, fetching, updating, and deleting various API Server assets using the Amplify Central CLI. Each command is followed by a brief description of what the command does, an explanation of the proper command syntax including command arguments and options, along with example syntax for various use-cases. Use this page to quickly lookup more information about the Amplify Central CLI command you're utilizing.
+This section contains the basic commands for creating, fetching, updating, and deleting various Axway API Server assets using the Amplify Central CLI. Each command is followed by a brief description of what the command does, an explanation of the proper command syntax including command arguments and options, along with example syntax for various use-cases. Use this page to quickly lookup more information about the Amplify Central CLI command you're utilizing.
 
 ## get
 
