@@ -10,9 +10,13 @@ This section contains the basic commands for creating, fetching, updating, and d
 
 ## get
 
-This command lists one or more resources. It also prints a table of the most important information about an specified resources. If the desired resource type is scoped, you will need to specify the scope name by providing the `-s, --scope <name>` flag.
+This command lists one or more resources. It also prints a table of the most important information about an specified resources. 
 
-You can search for more than one resource if you use comma-separated resources in the command. The search for multiple resources will display multiple result tables, one result table for each resource you fetch. To see the list of all available resources from AMPLIFY Central, run:
+Resources can be *scoped* or *unscoped*. A resource's scope refers to the accessibility of the resource. A scoped resource type will be deleteed when its scoped/related resource is deleted. Access to that resource type is controlled by authorization checks on the scope. An *unscoped* resource's availability/accessibility is *independent* of the accessibility of other resources.
+
+If the desired resource type is *scoped*, you will need to specify the scope name by providing the `-s, --scope <name>` flag.
+
+You can search for more than one resource if you use comma-separated resources in the command. The search for multiple resources will display multiple result tables, one result table for each resource you fetch. To see the list of all available resources from AMPLIFY Central, including information about whether those resources are scoped or unscoped, run:
 
 ```
 amplify central get
@@ -47,7 +51,7 @@ To get all environments in yaml format
 amplify central get environments -o yaml
 ```
 
-To get environment by Resource/Common name in json format
+To get environment by Resource/Common name(i.e. 'myenv') in json format
 
 ```
 amplify central get env myenv -o json
@@ -77,7 +81,7 @@ To get all environments and API services
 amplify central get envs,apisvc
 ```
 
-To get an environment and an apiservice which matches a Resource/Common Name in a specified scope (scope is required after -s flag) in json format
+To get an environment and an apiservice which matches a Resource/Common Name in a specified scope (scope is 'env1' in the following example and is required after -s flag) in json format
 
 ```
 amplify central get env,apisvc commonname -s env1 -o json
@@ -271,7 +275,7 @@ Install additional platform resources
 
 #### **install: agents configuration**
 
-Install API Gateway v7 / Amazon API Gateway / Kubernetes agents
+Install API Gateway v7 / Amazon API Gateway / Azure API Gateway / Kubernetes agents
 
 Usage:
 
