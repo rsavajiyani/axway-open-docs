@@ -1,91 +1,75 @@
 ---
-title: AMPLIFY Central CLI Command Index
+title: AMPLIFY Central CLI Command reference
 linkTitle: CLI commands Reference
 weight: 130
 date: 2021-01-13T00:00:00.000Z
 description: Learn about the different AMPLIFY Central CLI commands you can use.
 ---
 
-This section contains the basic commands for creating, fetching, updating, and deleting various Axway API Server assets using the Amplify Central CLI. Each command is followed by a brief description of what the command does, an explanation of the proper command syntax including command arguments and options, along with example syntax for various use-cases. Use this page to quickly lookup more information about the Amplify Central CLI command you're utilizing.
+This section contains the basic commands for creating, fetching, updating, and deleting various Axway API Server assets using the AMPLIFY Central CLI. Each command is followed by a brief description, an explanation of the proper command syntax, including command arguments and options, along with example syntax for various use cases.
 
-## get
+### The accessibility of resources
 
-This command lists one or more resources. It also prints a table of the most important information about an specified resources.
+Resources can be *scoped* or *unscoped*.
 
-Resources can be *scoped* or *unscoped*. A resource's scope refers to the accessibility of the resource. A scoped resource type will be deleted when its scoped/related resource is deleted. For example, an API Service resource is scoped to a corresponding Environment resource. When that Environment is deleted, the scoped API Service resources will be deleted as well.
+The scope of a resource refers to the accessibility of the resource. A scoped resource type will be deleted when its scoped, or related, resource is deleted. For example, an API Service resource is scoped to a corresponding Environment resource. When that Environment is deleted, the scoped API Service resource will be deleted as well.
 
-An *unscoped* resource's availability/accessibility is *independent* of the accessibility of other resources. Deleting an unscoped resource only deletes that specific resource. For example, deleting a Webhook(which is an unscoped resource type) only deletes the specific Webhook you are trying to delete, and does not delete other resources.
+The accessibility, or availability, of an unscoped resource is independent of the accessibility of other resources, meaning that deleting an unscoped resource only deletes that specific resource. For example, deleting a Webhook, which is an unscoped resource type, only deletes that specific Webhook, and does not delete other resources.
 
-If the desired resource type is *scoped*, you will need to specify the scope name by providing the `-s, --scope <name>` flag.
+If the desired resource type is scoped, you must specify the scope name by providing the `-s, --scope <name>` flag.
 
-You can search for more than one resource if you use comma-separated resources in the command. The search for multiple resources will display multiple result tables, one result table for each resource you fetch. To see the list of all available resources from AMPLIFY Central, including information about whether those resources are scoped or unscoped, run:
+You can search for more than one resource if you use comma-separated resources in a command. The search for multiple resources will display multiple result tables, one result table for each resource you fetch.
+
+To see the list of all available resources from AMPLIFY Central, including information about whether those resources are scoped or unscoped, run:
 
 ```
 amplify central get
 ```
 
-The following table describe the usage, options, and arguments that you can use with the `get` command:
+## get
+
+This command lists one or more resources. It also prints a table of the most important information about an specified resource.
+
+The following table describes the usage, options, and arguments for the `get` command:
 
 |Usage                                                          |                             |
 |---                                                            |---                                   |
 |`amplify central get [options] [<args...>]`                    |                                    |
-|`amplify central get <Resource>`                               |# Get a list of the resources          |
-|`amplify central get <Resource1>,<Resource2>,...,<ResourceN>`  |# Get a list of multiple resources  |
-|`amplify central get <Resource> <Name> -s/--scope <Scope Name>`|# Get a specific resource by name |
-|**Options**                                                    |                   |
-|`--client-id=<value>`                                          |# Override your DevOps account's client ID |
-|`-o,--output=<value>`                                          |# Additional output formats, yaml or json  |
-|`-s,--scope=<name>`                                            |# Scope name for scoped resources          |
-|**Arguments**                                                    |                   |
-|args...                                                        |# Command arguments, run `amplify central get` to see the examples |
+|`amplify central get <Resource>`                               |Get a list of the resources          |
+|`amplify central get <Resource1>,<Resource2>,...,<ResourceN>`  |Get a list of multiple resources  |
+|`amplify central get <Resource> <Name> -s/--scope <Scope Name>`|Get a specific resource by name |
+|**Options**                                                    |                 |
+|`--client-id=<value>`                                          |Override your DevOps account's client ID |
+|`-o,--output=<value>`                                          |Additional output formats, YAML or JSON  |
+|`-s,--scope=<name>`                                            |Scope name for scoped resources          |
+|**Arguments**                                                  |                   |
+|args...                                                        |Command arguments, run `amplify central get` to see the examples |
 
-The following are examples of how to use the `get` command:
+The following examples show how to use the `get` command:
 
-To get all environments:
-
-```
+```bash
+# To get all environments:
 amplify central get envs
-```
 
-To get all environments in yaml format
-
-```
+# To get all environments in YAML format:
 amplify central get environments -o yaml
-```
 
-To get environment by Resource/Common name(i.e. 'myenv') in json format
-
-```
+# To get environment by resource, or common name (for example, 'myenv') in JSON format:
 amplify central get env myenv -o json
-```
 
-To get all webhooks
-
-```
+# To get all webhooks:
 amplify central get webhooks
-```
 
-To get all webhooks by Short Name
-
-```
+# To get all webhooks by short name:
 amplify central get webh
-```
 
-To get all webhooks and apiservices by Short Name
+# To get all webhooks and API services by short name:
+amplify central get webh, apis
 
-```
-amplify central get webh,apis
-```
+# To get all environments and API services:
+amplify central get envs, apisvc
 
-To get all environments and API services
-
-```
-amplify central get envs,apisvc
-```
-
-To get an environment and an apiservice which matches a Resource/Common Name in a specified scope (scope is 'env1' in the following example and is required after -s flag) in json format
-
-```
+# To get an environment and an API service, which matches a resource in a specified scope in JSON format. In the following example, 'env1' is scope, and it is required after the `-s` flag):
 amplify central get env,apisvc commonname -s env1 -o json
 ```
 
@@ -93,203 +77,137 @@ For more examples, see [Create and fetch resources via the AMPLIFY Central CLI](
 
 ## create
 
-Create one or more resources from a YAML | JSON file or Stdin.
+Use this command to create one or more resources from a YAML or JSON file, or `Stdin`.
 
-**Create Usage**:
+The following table describes the usage, options, and arguments for the `create` command:
 
-`amplify central create <command> [options]`
+|Usage                                                    |                             |
+|---                                                      |---                                   |
+|`amplify central create <command> [options]`             |                                    |
+|`amplify central create -f <path_to_file>`               |Create multiple resources from a file|
+|`amplify central create environment [options] <name>`    |Create an environment with the specified name. Only environments are currently available for this command|
+|**Commands**                                             |          |
+|`environment`                                            |Create an environment with the specified name  |
+|`service-account`                                        |Create a service account |
+|**Options**                                              |                   |
+|`--client-id=<value>`                                    |Override your DevOps account's client ID |
+|`-f,--file=<path>`                                       |Filename to use to create the resource  |
+|`-o,--output=<value>`                                    |Additional output formats, YAML or JSON|
+|`--region=<value>`                                       |Override your region configuration          |
+|**Arguments**                                            |                   |
+|`name`                                                   |Name of the new environment |
 
-**Create Commands**:
-
-`environment` Create an environment with the specified name
-
-`service-account` Create a service account
-
-**Create Options**:
-
-`--client-id=<value>` Override your DevOps account's client ID
-
-`-f,--file=<path>` Filename to use to create the resource
-
-`-o,--output=<value>` Additional output formats. One of: YAML | JSON
-
-`--region=<value>` Override your region config
-
-**create: multiple resources from a file**:
-
-Usage: `amplify central create -f <path_to_file>`
-
-**create: specific resource by name**:
-
-**_Note: Only environments are currently available for this command._**
-
-Usage: `amplify central create environment [options] <name>`
-Create an environment with the specified name
-
-**Environment Arguments**:
-
-`name`          Name of new environment
-
-**Create Examples**:
+The following examples show how to use the `create` command:
 
 ```bash
 # create new environment with "newenv" name
 amplify central create env newenv
-# create new environment with "newenv" name and output result in yaml
+
+# create new environment with "newenv" name and output result in YAML
 amplify central create environment newenv -o yaml
+
 # create multiple resources from file
 amplify central create -f ./some/folder/resources.yaml
-# create a service account(DOSA)
+
+# create a service account (DOSA)
 amplify central create service-account
 ```
 
 ## apply
 
-Update resources from a file.
+The `apply` command updates resources from a file. The resource name must be specified in the file. The resource will be created if it does not exist yet.
 
-The resource name must be specified in the file. This resource will be created if it doesn't exist yet.
+The following table describes the usage and options for the `apply` command:
 
-### Apply Usage
+|Usage                                                    |                             |
+|---                                                      |---                                   |
+|`amplify central apply [options]`             |                                    |
+|**Options**                                              |                   |
+|`--client-id=<value>`                                    |Override your DevOps account's client ID |
+|`-f,--file=<path>`                                       |Filename to use to create the resource  |
+|`-o,--output=<value>`                                    |Additional output formats, YAML or JSON|
+|`--region=<value>`                                       |Override your region configuration          |
 
-`amplify central apply [options]`
-
-### Apply Options
-
-  `--client-id=<value>`   Override your DevOps account's client ID
-
-  `-f,--file=<path>`      Filename to use to create or update the resources. One of: yaml | json
-
-  `-o,--output=<value>`  Additional output formats. One of: YAML | JSON
-
-### Apply Examples
+The following examples show how to use the `apply` command:
 
 ```bash
 # create multiple resources from file
 amplify central apply -f ./some/folder/resources.yaml
+
 # create multiple resources from file and output results in YAML format
 amplify central apply -f ./some/folder/resources.json -o yaml
 ```
 
-- - -
+## delete
 
-## **delete**
+Delete resources by type name or file name. When deleting a single resource by its name, if the desired resource type is scoped, you must specify the scope name by adding the `-s, --scope <name>` flag.
 
-Delete resources by type name or file name.
+The following table describes the usage, options, and arguments for the `delete` command:
 
-When deleting the single resource by its name if the desired resource type is scoped you will need to specify the scope
-name by providing `-s, --scope <name>` flag.
+|Usage                                                    |                             |
+|---                                                      |---                                   |
+|`amplify central delete [options] [<args...>]`             |                                    |
+|**Options**                                              |                   |
+|`--client-id=<value>`                                    |Override your DevOps account's client ID |
+|`-f,--file=<path>`                                       |Filename to use to create the resource  |
+|`-s,--scope=<name>`                                    |Scope name for scoped resources.|
+|`--wait`                                               |Wait for the resources to be completely deleted          |
+|**Arguments**                                            |                   |
+|`args...`                                                  |Command arguments, run `amplify central delete` to see the examples |
 
-To see the list of all available resources on the API Server run `amplify central delete`.
-
-### Delete Usage
-
-`amplify central delete [options] [<args...>]`
-
-### Delete Options
-
-`--client-id=<value>`   Override your DevOps account's client ID
-
-`-f,--file=<path>`      Filename to use to delete the resource
-
-`-s,--scope=<name>`     Scope name for scoped resources.
-
-`--wait`                Wait for the resources to be completely deleted
-
-### Delete Arguments
-
-  `args...`               Command arguments, run `amplify central delete` to see the examples
-
-### Delete Examples
+The following examples show how to use the `delete` command:
 
 ```bash
 # delete environment by name
 amplify central delete environment newenv
-# delete api service by name (a scoped resource)
+
+# delete API service by name (a scoped resource)
 amplify central delete apisvc someapisvc -s newenv
+
 # delete all resources specified in the file
 amplify central delete -f ./some/folder/resources.yaml
 ```
 
-- - -
+## edit
 
-## **edit**
+Edit and update resources by using the default editor.
 
-Edit and update resources by using the default editor
+The following table describes the usage, options, and arguments for the `edit` command:
 
-### Edit Usage
+|Usage                                                    |                             |
+|---                                                      |---                                   |
+|`amplify central edit <command> [options]`             |                                    |
+|`amplify central edit environment [options] <name>`      |`environment` - Edit an environment with the specified name.     |
+|**Options**                                              |                   |
+|`--client-id=<value>`                                    |Override your DevOps account's client ID |
+|`-o,--output=<value>`                                       |Additional output formats, YAML or JSON |
+|**Arguments**                                            |                   |
+|`name`                                                  |Name of the environment |
 
-`amplify central edit <command> [options]`
-
-### Edit Commands
-
-  `environment`   Edit an environment with the specified name.
-
-### Edit Options
-
-  `--client-id=<value>`   Override your DevOps account's client ID
-
-  `-o,--output=<value>`   Additional output formats. One of: yaml|json
-
-#### **edit: resource by name**
-
-Edit an environment with the specified name.
-
-_Using "environment" as an example._
-
-Usage:
-
-`amplify central edit environment [options] <name>`
-
-Environment Arguments:
-
-  `name`          Name of the environment
-
-### Edit Examples
+The following example shows how to use the `edit` command:
 
 ```bash
-# delete environment by name
+# edit environment by name
 amplify central edit environment newenv
 ```
 
-- - -
+## install
 
-## **install**
+Install additional platform resources.
 
-Install additional platform resources
+The following table describes the usage, options, and arguments for the `edit` command:
 
-### Install Usage
+|Usage                                                    |                             |
+|---                                                      |---                                   |
+|`amplify central install <command> [options] [<args...>]`             |                                    |
+|`amplify central install agents [options]`             |`agents` - Install API Gateway v7, Amazon API Gateway, Azure API Gateway, Kubernetes agents|
+|**Options**                                              |                   |
+|`--client-id=<value>`                                    |Override your DevOps account's client ID |
+|`--region=<value>`                                       |Override your region config |
+|**Arguments**                                            |                   |
+|`args...`                                                  |Command arguments, run `amplify central install` to see the examples |
 
-`amplify central install <command> [options] [<args...>]`
-
-### Install Commands
-
-  `agents`                Install v7 / AWS / kubernetes agent.
-
-### Install Arguments
-
-  `args...`               Command arguments, run `amplify central install` to see the examples
-
-### Install Options
-
-`--client-id=<value>`   Override your DevOps account's client ID
-
-`--region=<value>`      Override your region config
-
-#### **install: agents configuration**
-
-Install API Gateway v7 / Amazon API Gateway / Azure API Gateway / Kubernetes agents
-
-Usage:
-
-`amplify central install agents [options]`
-
-Install Options:
-
-  `--client-id=<value>`   Override your DevOps account's client ID
-
-`--region=<value>`      Override your region config
-
-#### Install Examples
+The following example shows how to use the `install` command:
 
 ```bash
 # install agent configuration in interactive mode
