@@ -10,9 +10,11 @@ This section contains the basic commands for creating, fetching, updating, and d
 
 ## get
 
-This command lists one or more resources. It also prints a table of the most important information about an specified resources. 
+This command lists one or more resources. It also prints a table of the most important information about an specified resources.
 
-Resources can be *scoped* or *unscoped*. A resource's scope refers to the accessibility of the resource. A scoped resource type will be deleteed when its scoped/related resource is deleted. Access to that resource type is controlled by authorization checks on the scope. An *unscoped* resource's availability/accessibility is *independent* of the accessibility of other resources.
+Resources can be *scoped* or *unscoped*. A resource's scope refers to the accessibility of the resource. A scoped resource type will be deleted when its scoped/related resource is deleted. For example, an API Service resource is scoped to a corresponding Environment resource. When that Environment is deleted, the scoped API Service resources will be deleted as well.
+
+An *unscoped* resource's availability/accessibility is *independent* of the accessibility of other resources. Deleting an unscoped resource only deletes that specific resource. For example, deleting a Webhook(which is an unscoped resource type) only deletes the specific Webhook you are trying to delete, and does not delete other resources.
 
 If the desired resource type is *scoped*, you will need to specify the scope name by providing the `-s, --scope <name>` flag.
 
