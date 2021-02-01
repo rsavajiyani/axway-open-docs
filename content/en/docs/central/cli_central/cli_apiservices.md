@@ -55,16 +55,16 @@ Alternatively, you can use the short name, `apis`:
 amplify central get apis
 ```
 
-This command outputs a list of all API services in all environments, with information about the API service name, age, title, and environment scope information:
+This command outputs a list of all API services in all environments, with information about the API service name, age, title, and environment scope:
 
 ```
-NAME                                         AGE           TITLE                                         RESOURCE KIND  SCOPE KIND   SCOPE NAME
-7841311a-3338-11eb-b6eb-0242ac110002         a month ago   PetStore-Secured                              APIService     Environment  awsgtw-us-east-2
-2f754bb3-34b2-11eb-986d-000c29b55428         a month ago   Stockquote (V7)                               APIService     Environment  cca-m2020-apim
-govuk-pay                                    23 days ago   GOV.UK Pay                                    APIService     Environment  mulesoft
-lyft                                         23 days ago   Lyft                                          APIService     Environment  mulesoft
-swagger-petstore-raml                        23 days ago   Swagger Petstore RAML                         APIService     Environment  mulesoft
-ably-rest-api                                5 days ago    ably-rest-api                                 APIService     Environment  apig33
+NAME                                  AGE           TITLE                   RESOURCE KIND  SCOPE KIND   SCOPE NAME
+7841311a-3338-11eb-b6eb-0242ac110002  a month ago   PetStore-Secured        APIService     Environment  awsgtw-us-east-2
+2f754bb3-34b2-11eb-986d-000c29b55428  a month ago   Stockquote (V7)         APIService     Environment  cca-m2020-apim
+govuk-pay                             23 days ago   GOV.UK Pay              APIService     Environment  mulesoft
+lyft                                  23 days ago   Lyft                    APIService     Environment  mulesoft
+swagger-petstore-raml                 23 days ago   Swagger Petstore RAML   APIService     Environment  mulesoft
+ably-rest-api                         5 days ago    ably-rest-api           APIService     Environment  apig33
 ```
 
 To get help with a list of supported resource types, run:
@@ -106,15 +106,15 @@ webhooks                  webh         Webhook                         true    I
 webhooks                  webh         Webhook                         true    Environment
 ```
 
-## Retrieve details for a specific API Service
+## Retrieve details of a specific API Service
 
-Get the details for a specific API service in an environment by providing the environment name and the API service name:
+Get the details of a specific API service in an environment by providing the environment name and the API service name:
 
 ```
-amplify central get apisvc <name> --scope env1 -o yaml  # Get API service <name> details for `env1` in YAML format
+amplify central get apisvc <name> --scope env1 -o yaml  # Get API service <name> details of `env1` in YAML format
 ```
 
-This command outputs the details for that specific service in YAML format:
+This command outputs the details of that specific service in YAML format:
 
 ```
 ---
@@ -154,7 +154,7 @@ spec:
 To output the information in JSON format, change the `-o` flag from YAML to JSON:
 
 ```
-amplify central get apisvc <name> -s env1 -o json       # Get API service <name> details for `env1` in JSON format
+amplify central get apisvc <name> -s env1 -o json       # Get API service <name> details of `env1` in JSON format
 ```
 
 ## Update a specific API Service

@@ -1,9 +1,9 @@
 ---
 title: AMPLIFY Central CLI Command reference
-linkTitle: CLI commands Reference
+linkTitle: CLI commands reference
 weight: 130
 date: 2021-01-13T00:00:00.000Z
-description: Learn about the different AMPLIFY Central CLI commands you can use.
+description: Learn about the different AMPLIFY Central CLI commands.
 ---
 
 This section contains the basic commands for creating, fetching, updating, and deleting various Axway API Server assets using the AMPLIFY Central CLI. Each command is followed by a brief description, an explanation of the proper command syntax, including command arguments and options, along with example syntax for various use cases.
